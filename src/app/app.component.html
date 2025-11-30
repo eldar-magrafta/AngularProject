@@ -1,38 +1,12 @@
 <app-header/>
 
 <main>
-  <ul>
-    <li>
-      <!-- When the child component fires its 'select' event, call my 'handleUserSelection' method and pass whatever data the child sent as the argument -->
-      <app-user
-        [user]="users[0]"
-        (select)="handleUserSelection($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[1]"
-        (select)="handleUserSelection($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[2]"
-        (select)="handleUserSelection($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[3]"
-        (select)="handleUserSelection($event)"
-      />
-    </li>
-    <li>
-      <app-user
-        [user]="users[4]"
-        (select)="handleUserSelection($event)"
-      />
-    </li>
+  <ul id="users">
+    @for (user of users; track user.id) {
+      <li>
+        <app-user [user]="user" (select)="handleUserSelection($event)"/>   <!-- When the child component fires its 'select' event, call my 'handleUserSelection' method and pass whatever data the child sent as the argument -->
+      </li>
+    }
   </ul>
   <app-tasks [name]="selectedUser?.name"/>
 </main>
