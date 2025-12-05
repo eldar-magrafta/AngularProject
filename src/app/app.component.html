@@ -4,7 +4,7 @@
   <ul id="users">
     @for (user of users; track user.id) {
       <li>
-        <app-user [user]="user" (select)="handleUserSelection($event)"/>   <!-- When the child component fires its 'select' event, call my 'handleUserSelection' method and pass whatever data the child sent as the argument -->
+        <app-user [user]="user" [selected]="user.id === selectedUserId" (select)="handleUserSelection($event)"/>   <!-- When the child component fires its 'select' event, call my 'handleUserSelection' method and pass whatever data the child sent as the argument -->
       </li>
     }
   </ul>
