@@ -48,9 +48,13 @@ export class TasksComponent {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
 
-  onStartAddTaskClick() {
+  onStartAddTask() {
+    console.log('OnStartAddTask from TasksComponent.ts');
     this.isAddTaskActive = true;
+  }
 
-
+  onCancelAddTask() {
+    console.log('OnCancelAddTask from TasksComponent.ts');
+    this.isAddTaskActive = false;
   }
 }
